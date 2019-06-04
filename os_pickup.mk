@@ -1,4 +1,5 @@
 ifeq ($(PRODUCT_PLATFORM),sm8150p)
+ifneq ($(BUILD_WITHOUT_VENDOR), true)
 LOCAL_PATH := $(call my-dir)
 subdir_makefiles=$(call first-makefiles-under,$(LOCAL_PATH))
 
@@ -13,4 +14,5 @@ subdir_makefiles += hardware/qcom/sm8150/display/Android.mk \
                     hardware/qcom/sm8150/media/Android.mk
 
 $(foreach mk,$(subdir_makefiles),$(info including $(mk) ...)$(eval include $(mk)))
+endif
 endif
